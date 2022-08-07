@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
+import App from './routes/App';
 
 // Version vieja de React 17
 // ReactDOM.render(<App />, document.getElementById('app'));
