@@ -1,8 +1,10 @@
 import React from 'react';
+import initialState from '../initialState';
+import Products from '../components/Products';
 
 const Store = () => {
   return (
-    <div>Store</div>
+    <Products products={initialState.products} />
   );
 };
 
