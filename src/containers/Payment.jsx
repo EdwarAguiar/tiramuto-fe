@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/components/Payment.css';
 
 const Payment = () => {
@@ -10,7 +11,13 @@ const Payment = () => {
           Boton de Pago con Paypal
         </div>
       </div>
+      <div className="Payment-navigator">
+      <Link to="/checkout/information">
+        <button type="text">Regresar a Informacion de Contancto </button>
+      </Link>
     </div>
+    </div>
+
   );
 };
 
