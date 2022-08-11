@@ -1,7 +1,7 @@
-.Header {
+/* .Header {
   display: flex;
   justify-content: space-between;
-}
+} */
 .Header-checkout {
   display: flex;
   justify-content: space-evenly;
@@ -19,3 +19,12 @@
   text-decoration: none;
   color: #33b1ff;
 }
+.Header-up {
+  display: flex;
+  justify-content: space-between;
+}
+.Header-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
