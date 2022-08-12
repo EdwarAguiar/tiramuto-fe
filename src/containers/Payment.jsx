@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { Link, useNavigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
+import config from '../config/config';
 import '../styles/components/Payment.css';
 
 const Payment = () => {
@@ -10,19 +11,19 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const paypalOptions = {
-    clientId:'AWR_4IWWA2rer5pJAQ0ZHCgiPn48womazQeFmK185-soCCxt_KdUbDf-ZVSDg0C97K_btw9et6W22ZEL',
+    clientId: config.paypalClientID,
     intent: 'capture',
     currency: 'USD'
-}
+  }
 
-const buttonStyles = {
+  const buttonStyles = {
     layout: 'horizontal',
     color: 'gold',
     shape: 'rect',
     label: 'paypal'
-}
+  }
 
-const handlePaymentSuccess = (data) => {
+  const handlePaymentSuccess = (data) => {
     console.log(data);
     if(data.status === 'COMPLETED') {
         const newOrder = {
@@ -33,13 +34,13 @@ const handlePaymentSuccess = (data) => {
         addNewOrder(newOrder);
         navigate('/checkout/success');
     }
-}
+  }
 
-const handleSumTotal = () => {
+  const handleSumTotal = () => {
     const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
     const sum = cart.reduce(reducer, 0);
     return sum;
-}
+  }
 
   return (
     <div className="Payment">
