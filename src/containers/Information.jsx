@@ -39,8 +39,8 @@ const Information = () => {
             <input type="text" placeholder="Direccion" name="address" />
             <input type="text" placeholder="Apto" name="apto" />
             <input type="text" placeholder="Ciudad" name="city" />
-            <input type="text" placeholder="Estado" name="state" />
             <input type="text" placeholder="Codido Postal" name="cp" />
+            <input type="text" placeholder="Estado" name="state" />
             <input type="text" placeholder="Pais" name="country" />
             <input type="text" placeholder="Telefono" name="phone" />
           </form>
