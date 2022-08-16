@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import AppContext from '../context/AppContext';
 import config from '../config/config';
 import '../styles/components/Payment.css';
@@ -43,36 +44,42 @@ const Payment = () => {
   }
 
   return (
-    <div className="Payment">
-      <div className="Payment-content">
-        <h3>Resumen del pedido:</h3>
-        {cart.map((item) =>(
-          <div className="Payment-item" key={item.title}>
-            <div className="Payment-element">
-              <h4>{item.title}</h4>
-                <span>${' '}{item.price}</span>
+    <>
+      <Helmet>
+        <title>Pagar - Tiramuto</title>
+      </Helmet>
+      <div className="Payment">
+        <div className="Payment-content">
+          <h3>Resumen del pedido:</h3>
+          {cart.map((item) =>(
+            <div className="Payment-item" key={item.title}>
+              <div className="Payment-element">
+                <h4>{item.title}</h4>
+                  <span>${' '}{item.price}</span>
+              </div>
             </div>
+          ))}
+          <div className="Payment-button">
+            <PayPalButton 
+              paypalOptions={paypalOptions}
+              buttonStyles={buttonStyles}
+              amount={handleSumTotal()}
+              onSuccess={data => handlePaymentSuccess(data)}
+              onError={error => console.log(error)}
+              onCancel={data => console.log(data)}
+            />
           </div>
-        ))}
-        <div className="Payment-button">
-          <PayPalButton 
-            paypalOptions={paypalOptions}
-            buttonStyles={buttonStyles}
-            amount={handleSumTotal()}
-            onSuccess={data => handlePaymentSuccess(data)}
-            onError={error => console.log(error)}
-            onCancel={data => console.log(data)}
-          />
         </div>
-      </div>
 
-      <div className="Payment-navigator">
-        <Link to="/checkout/information">
-          <button type="text">Regresar a Informacion de Contancto </button>
-        </Link>
-      </div>
+        <div className="Payment-navigator">
+          <Link to="/checkout/information">
+            <button type="text">Regresar a Informacion de Contancto </button>
+          </Link>
+        </div>
 
-    </div>
+      </div>
+    </>
+
 
   );
 };

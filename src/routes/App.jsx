@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from '../containers/Home';
+import Aboutme from '../containers/Aboutme';
 import Store from '../containers/Store';
 import Blog from '../containers/Blog';
 import Apishow from '../containers/Apishow';
@@ -22,6 +23,7 @@ const App = () => {
                 <Layout>
                     <Routes>
                         <Route path='/' element={ <Home />} />
+                        */<Route path='/aboutme' element={ <Aboutme />} />*/
                         <Route path='/store' element={ <Store />} />
                         <Route path='/blog' element={ <Blog />} />
                         <Route path='/apishow' element={ <Apishow />} />
